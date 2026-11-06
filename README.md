@@ -29,6 +29,8 @@ model checkpoints, and the paper sources (they live with the manuscript).
 ## Install
 
 ```bash
+git clone https://github.com/oyzhoyzhoyzh/ReasonEdit-Bench.git
+cd ReasonEdit-Bench
 python3 -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt
 ```
