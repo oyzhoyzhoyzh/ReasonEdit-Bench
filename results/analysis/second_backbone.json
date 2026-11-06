@@ -1,0 +1,93 @@
+{
+  "n_items": 108,
+  "conditions": [
+    {
+      "backbone": "Qwen-Image-Edit",
+      "condition": "base",
+      "system": "qwen_image_edit",
+      "n": 108,
+      "tcs": 0.6342592592592593,
+      "dps": 0.5393518518518517,
+      "nps": 0.8919753086419754,
+      "ccs": 0.6885288065843622,
+      "contract": 0.17592592592592593
+    },
+    {
+      "backbone": "Qwen-Image-Edit",
+      "condition": "+CoT",
+      "system": "qwen_image_edit__cot",
+      "n": 108,
+      "tcs": 0.7129629629629629,
+      "dps": 0.5910493827160493,
+      "nps": 0.8888888888888887,
+      "ccs": 0.7309670781893004,
+      "contract": 0.17592592592592593
+    },
+    {
+      "backbone": "Qwen-Image-Edit",
+      "condition": "+Oracle-SCM",
+      "system": "qwen_image_edit__oracle",
+      "n": 108,
+      "tcs": 0.6388888888888888,
+      "dps": 0.6520061728395062,
+      "nps": 0.8796296296296297,
+      "ccs": 0.7235082304526749,
+      "contract": 0.23148148148148148
+    },
+    {
+      "backbone": "Qwen-Image-Edit",
+      "condition": "+CausalScaffold",
+      "system": "qwen_image_edit__scaffold_full",
+      "n": 108,
+      "tcs": 0.6527777777777778,
+      "dps": 0.6064814814814815,
+      "nps": 0.9104938271604938,
+      "ccs": 0.7232510288065844,
+      "contract": 0.2037037037037037
+    },
+    {
+      "backbone": "FLUX.1-Kontext",
+      "condition": "base",
+      "system": "flux_kontext_2nd",
+      "n": 108,
+      "tcs": 0.37962962962962965,
+      "dps": 0.40740740740740733,
+      "nps": 0.8395061728395062,
+      "ccs": 0.5421810699588476,
+      "contract": 0.027777777777777776
+    },
+    {
+      "backbone": "FLUX.1-Kontext",
+      "condition": "+CoT",
+      "system": "flux_kontext_2nd__cot",
+      "n": 108,
+      "tcs": 0.41203703703703703,
+      "dps": 0.4174382716049383,
+      "nps": 0.8595679012345679,
+      "ccs": 0.563014403292181,
+      "contract": 0.06481481481481481
+    },
+    {
+      "backbone": "FLUX.1-Kontext",
+      "condition": "+Oracle-SCM",
+      "system": "flux_kontext_2nd__oracle",
+      "n": 108,
+      "tcs": 0.41203703703703703,
+      "dps": 0.4320987654320988,
+      "nps": 0.8503086419753089,
+      "ccs": 0.5648148148148148,
+      "contract": 0.037037037037037035
+    },
+    {
+      "backbone": "FLUX.1-Kontext",
+      "condition": "+CausalScaffold",
+      "system": "flux_kontext_2nd__scaffold_full",
+      "n": 108,
+      "tcs": 0.37962962962962965,
+      "dps": 0.4367283950617284,
+      "nps": 0.8348765432098767,
+      "ccs": 0.5504115226337448,
+      "contract": 0.05555555555555555
+    }
+  ]
+}

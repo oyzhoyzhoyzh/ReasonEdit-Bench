@@ -1,0 +1,129 @@
+{
+  "n_shared_probes": 20718,
+  "verdict_agreement": 0.7457283521575442,
+  "verdict_kappa": 0.5459003916644873,
+  "answer_mix_api": {
+    "yes": 0.4796312385365383,
+    "no": 0.41041606332657593,
+    "unclear": 0.10956656047881069
+  },
+  "answer_mix_local": {
+    "yes": 0.5177140650641954,
+    "no": 0.4619171734723429,
+    "unclear": 0.01974128776908968
+  },
+  "agreement_by_kind": {
+    "dps": {
+      "accuracy": 0.7060100393433727,
+      "n": 7371
+    },
+    "nps": {
+      "accuracy": 0.829940119760479,
+      "n": 7515
+    },
+    "qua": {
+      "accuracy": 0.6090534979423868,
+      "n": 2916
+    },
+    "tcs": {
+      "accuracy": 0.7657750342935528,
+      "n": 2916
+    }
+  },
+  "systems": [
+    "instructpix2pix",
+    "sdxl_inpaint",
+    "qwen_image_edit",
+    "qwen_image_edit__cot",
+    "qwen_image_edit__oracle",
+    "qwen_image_edit__scaffold_full",
+    "flux_fill",
+    "sd15_inpaint",
+    "sd2_inpaint"
+  ],
+  "ccs_api": [
+    0.46124828532235934,
+    0.37397119341563784,
+    0.681241426611797,
+    0.7073902606310014,
+    0.7259087791495199,
+    0.7239368998628257,
+    0.35142318244170095,
+    0.3773576817558299,
+    0.38078703703703703
+  ],
+  "ccs_local": [
+    0.42241083676268865,
+    0.29518175582990397,
+    0.6321159122085047,
+    0.645233196159122,
+    0.674554183813443,
+    0.6637517146776406,
+    0.2289094650205761,
+    0.2902091906721536,
+    0.29012345679012347
+  ],
+  "ccs_delta": [
+    -0.038837448559670695,
+    -0.07878943758573387,
+    -0.04912551440329227,
+    -0.06215706447187941,
+    -0.05135459533607689,
+    -0.06018518518518512,
+    -0.12251371742112485,
+    -0.08714849108367628,
+    -0.09066358024691357
+  ],
+  "ccs_max_abs_delta": 0.12251371742112485,
+  "ccs_mean_abs_delta": 0.071197226032617,
+  "ccs_spearman": 0.9333333333333332,
+  "ranking_identical": false,
+  "order_api": [
+    "qwen_image_edit__oracle",
+    "qwen_image_edit__scaffold_full",
+    "qwen_image_edit__cot",
+    "qwen_image_edit",
+    "instructpix2pix",
+    "sd2_inpaint",
+    "sd15_inpaint",
+    "sdxl_inpaint",
+    "flux_fill"
+  ],
+  "order_local": [
+    "qwen_image_edit__oracle",
+    "qwen_image_edit__scaffold_full",
+    "qwen_image_edit__cot",
+    "qwen_image_edit",
+    "instructpix2pix",
+    "sdxl_inpaint",
+    "sd15_inpaint",
+    "sd2_inpaint",
+    "flux_fill"
+  ],
+  "strict_api": [
+    0.006172839506172839,
+    0.0,
+    0.14506172839506173,
+    0.16049382716049382,
+    0.2006172839506173,
+    0.25,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "strict_local": [
+    0.006172839506172839,
+    0.0,
+    0.08950617283950617,
+    0.10185185185185185,
+    0.1697530864197531,
+    0.16049382716049382,
+    0.0,
+    0.0,
+    0.0030864197530864196
+  ],
+  "best_contract_api": 0.25,
+  "best_contract_local": 0.1697530864197531,
+  "oracle_contract_fail_local": 0.8302469135802469,
+  "tcs_minus_dps_base_local": 0.04963991769547316
+}

@@ -1,0 +1,40 @@
+{
+  "n": 324,
+  "by_type": {
+    "sequential": 36,
+    "social": 36,
+    "multi": 36,
+    "long_horizon": 36,
+    "single": 36,
+    "functional": 36,
+    "conditional": 36,
+    "physical": 36,
+    "counterfactual": 36
+  },
+  "by_domain": {
+    "multi_step": 108,
+    "commonsense": 108,
+    "causal": 108
+  },
+  "by_difficulty": {
+    "hard": 83,
+    "medium": 157,
+    "easy": 84
+  },
+  "by_dataset": {
+    "MagicBrush": 162,
+    "ADE20K": 162
+  },
+  "rejects": {
+    "review:review_error": 171,
+    "review:intervention_visible": 251,
+    "schema:ValidationError": 136,
+    "review:effects_valid": 495,
+    "review:effects_checkable": 41,
+    "review:preserved_valid": 3
+  },
+  "avg_chain": 3.1203703703703702,
+  "avg_effects": 2.5277777777777777,
+  "avg_nodes": 4.021604938271605,
+  "avg_depth": 1.904320987654321
+}

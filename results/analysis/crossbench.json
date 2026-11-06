@@ -1,0 +1,102 @@
+{
+  "rows": [
+    {
+      "system": "instructpix2pix",
+      "n": 264,
+      "clipscore": 20.32571787466154,
+      "dino_i": 0.7783587146673888,
+      "lpips": 0.21535042341653907,
+      "follows": 0.3787878787878788,
+      "reason_edit_ccs": 0.46124828532235934,
+      "reason_edit_contract": 0.006172839506172839
+    },
+    {
+      "system": "sd15_inpaint",
+      "n": 264,
+      "clipscore": 23.17936046782768,
+      "dino_i": 0.16243668947065476,
+      "lpips": 0.723725764363101,
+      "follows": 0.36363636363636365,
+      "reason_edit_ccs": 0.3773576817558299,
+      "reason_edit_contract": 0.0
+    },
+    {
+      "system": "sd2_inpaint",
+      "n": 264,
+      "clipscore": 23.626385454201337,
+      "dino_i": 0.1534620987385455,
+      "lpips": 0.7214812697334723,
+      "follows": 0.39015151515151514,
+      "reason_edit_ccs": 0.38078703703703703,
+      "reason_edit_contract": 0.0
+    },
+    {
+      "system": "sdxl_inpaint",
+      "n": 264,
+      "clipscore": 23.546841018127672,
+      "dino_i": 0.28177679592574184,
+      "lpips": 0.5630673828224341,
+      "follows": 0.4090909090909091,
+      "reason_edit_ccs": 0.37397119341563784,
+      "reason_edit_contract": 0.0
+    },
+    {
+      "system": "flux_fill",
+      "n": 264,
+      "clipscore": 16.491129458176367,
+      "dino_i": 0.04726438490130628,
+      "lpips": 0.8394168506969105,
+      "follows": 0.10227272727272728,
+      "reason_edit_ccs": 0.35142318244170095,
+      "reason_edit_contract": 0.0
+    },
+    {
+      "system": "qwen_image_edit",
+      "n": 264,
+      "clipscore": 20.376043984045584,
+      "dino_i": 0.7914202912555387,
+      "lpips": 0.25807836950777774,
+      "follows": 0.8712121212121212,
+      "reason_edit_ccs": 0.681241426611797,
+      "reason_edit_contract": 0.14506172839506173
+    }
+  ],
+  "order_gedit": [
+    "qwen_image_edit",
+    "sdxl_inpaint",
+    "sd2_inpaint",
+    "instructpix2pix",
+    "sd15_inpaint",
+    "flux_fill"
+  ],
+  "order_reason": [
+    "qwen_image_edit",
+    "instructpix2pix",
+    "sd2_inpaint",
+    "sd15_inpaint",
+    "sdxl_inpaint",
+    "flux_fill"
+  ],
+  "spearman_follows_vs_ccs": 0.6,
+  "spearman_clip_vs_ccs": 0.08571428571428573,
+  "spearman_dino_vs_ccs": 0.7714285714285715,
+  "spearman_lpips_vs_ccs": -0.7714285714285715,
+  "correlations": {
+    "follows": {
+      "rho": 0.6,
+      "exact_permutation_p": 0.24166666666666667
+    },
+    "clip": {
+      "rho": 0.08571428571428572,
+      "exact_permutation_p": 0.9194444444444444
+    },
+    "dino": {
+      "rho": 0.7714285714285715,
+      "exact_permutation_p": 0.10277777777777777
+    },
+    "lpips": {
+      "rho": -0.7714285714285715,
+      "exact_permutation_p": 0.10277777777777777
+    }
+  }
+}

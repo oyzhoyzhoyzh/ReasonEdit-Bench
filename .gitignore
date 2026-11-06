@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# checkpoints and source datasets (download separately)
+models/
+data/raw/
+data/pool/
+
+# run artefacts: generated images, shard logs, scratch outputs
+logs/
+results/qwen_image_edit/
+results/qwen_multiseed_s*/
+results/instructpix2pix/
+results/sdxl_inpaint/
+results/sd15_inpaint/
+results/sd2_inpaint/
+results/flux_fill/
+results/flux_kontext_*/
+results/crossbench/
+results/_smoke*/
+results/_invalid_prefilter/
+results/figures/
+results/tables/
+results/preference/submissions/
+
+# editor / OS noise
+.DS_Store
+Thumbs.db
+*.swp

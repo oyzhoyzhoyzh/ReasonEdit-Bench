@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReasonEdit-Bench · 人工偏好研究</title>
+<link rel="stylesheet" href="/static/pref.css">
+</head>
+<body>
+
+<div id="login" class="overlay">
+  <div class="login-card">
+    <h1>ReasonEdit-Bench · 人工偏好研究</h1>
+    <p class="hint">
+      每条题目给出<b>同一个指令</b>的两份编辑结果（A 与 B），系统名称已隐藏、左右位置已随机化。
+      请判断<b>哪一份更好地完成了这条指令</b>；如果两份都明显没做到，请选「都失败」。
+    </p>
+    <p class="hint small">
+      请独立完成，不要与他人讨论；不确定时按第一印象作答，并在置信度上如实标注。
+      题目中混有少量<b>质量校验题</b>（两份中有一份是明显劣化的副本），用于检查作答质量。
+    </p>
+    <div id="roster" class="roster"></div>
+    <p class="hint small" id="login-proto"></p>
+    <p class="hint small">
+      完成后由组织者运行 <code>python -m reasondata.pref_app report</code> 汇总
+      （偏好胜率、与因果契约/CLIP 的一致性、评价者间 κ）。
+      也可以 <a href="/report" target="_blank">查看实时报告</a>。
+    </p>
+  </div>
+</div>
+
+<header id="topbar" class="hidden">
+  <div class="bar-left">
+    <span class="brand">ReasonEdit-Bench · 偏好研究</span>
+    <span class="pill" id="who"></span>
+    <span class="pill" id="progress"></span>
+    <span class="pill ghost" id="savestate">未作答</span>
+    <span class="pill warn" id="blindpill">盲评：系统名已隐藏</span>
+  </div>
+  <div class="bar-right">
+    <button id="btn-prev" class="btn">← 上一题</button>
+    <input id="jump" type="number" min="1" placeholder="跳转 #" title="输入序号后回车">
+    <button id="btn-next" class="btn">下一题 →</button>
+    <button id="btn-save" class="btn primary">提交并下一题 (Enter)</button>
+    <a class="btn" href="/report" target="_blank">实时报告</a>
+    <button id="btn-switch" class="btn">切换评价者</button>
+  </div>
+</header>
+
+<main id="main" class="hidden">
+  <div class="instbar">
+    <span class="tag">指令</span>
+    <span id="instruction"></span>
+  </div>
+
+  <div class="zoomrow">
+    <span class="item-meta" id="item-meta"></span>
+    <span class="spacer"></span>
+    <button class="btn tiny" id="zoom-out">−</button>
+    <span class="pill ghost" id="zoom-label">100%</span>
+    <button class="btn tiny" id="zoom-in">＋</button>
+    <button class="btn tiny" id="zoom-fit">适应宽度</button>
+    <label class="chk"><input type="checkbox" id="show-source" checked> 显示原图</label>
+  </div>
+
+  <section class="stage" id="stage">
+    <figure class="srcbox" id="srcbox">
+      <figcaption>原图 SOURCE</figcaption>
+      <div class="imgwrap"><img id="img-src" alt="source"></div>
+    </figure>
+    <figure class="side">
+      <figcaption><span class="sidebadge a">A</span> 编辑结果 A</figcaption>
+      <div class="imgwrap"><img id="img-a" alt="edit A"></div>
+    </figure>
+    <figure class="side">
+      <figcaption><span class="sidebadge b">B</span> 编辑结果 B</figcaption>
+      <div class="imgwrap"><img id="img-b" alt="edit B"></div>
+    </figure>
+  </section>
+
+  <section class="panels">
+    <div class="card">
+      <h2>1 · 哪一份更好地完成了指令？ <span class="tag-mini">必答</span></h2>
+      <p class="hint">比较两份编辑结果，结合原图判断。若两份都明显未完成指令，选「都失败」。</p>
+      <div class="choicegrid" id="choices">
+        <button class="choice" data-choice="A"><b>A</b> 更好</button>
+        <button class="choice" data-choice="B"><b>B</b> 更好</button>
+        <button class="choice" data-choice="tie">差不多 / 无法区分</button>
+        <button class="choice bad" data-choice="both_fail">两者都失败</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2 · 你的确信程度 <span class="tag-mini">必答</span></h2>
+      <div class="scalegrid" id="confidence">
+        <button class="scale" data-c="1">1 猜的</button>
+        <button class="scale" data-c="2">2</button>
+        <button class="scale" data-c="3">3 一般</button>
+        <button class="scale" data-c="4">4</button>
+        <button class="scale" data-c="5">5 非常确定</button>
+      </div>
+    </div>
+
+    <details class="card" id="obl-box">
+      <summary><h2 class="inline">3 · 分项判断（可选，但很有帮助）</h2></summary>
+      <p class="hint">分别针对 A、B 各判断三件事；不确定请选「不确定」，不要猜。</p>
+      <div class="oblgrid" id="obligations"></div>
+    </details>
+
+    <div class="card">
+      <h2>4 · 备注（可选）</h2>
+      <textarea id="comment" rows="2" placeholder="例如：A 把灯的影子去掉了，但房间没有变暗。"></textarea>
+    </div>
+  </section>
+</main>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="/static/pref.js"></script>
+</body>
+</html>

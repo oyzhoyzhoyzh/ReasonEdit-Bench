@@ -1,0 +1,78 @@
+{
+ "seeds": [
+  "flux_kontext_s1",
+  "flux_kontext_s2",
+  "flux_kontext_s3"
+ ],
+ "n_items": 108,
+ "per_seed": {
+  "tcs": {
+   "flux_kontext_s1": 0.37962962962962965,
+   "flux_kontext_s2": 0.44907407407407407,
+   "flux_kontext_s3": 0.39814814814814814
+  },
+  "dps": {
+   "flux_kontext_s1": 0.41435185185185186,
+   "flux_kontext_s2": 0.43441358024691357,
+   "flux_kontext_s3": 0.43209876543209874
+  },
+  "nps": {
+   "flux_kontext_s1": 0.8479938271604939,
+   "flux_kontext_s2": 0.8094135802469136,
+   "flux_kontext_s3": 0.8472222222222222
+  },
+  "ccs": {
+   "flux_kontext_s1": 0.5473251028806584,
+   "flux_kontext_s2": 0.5643004115226338,
+   "flux_kontext_s3": 0.559156378600823
+  },
+  "strict_success": {
+   "flux_kontext_s1": 0.037037037037037035,
+   "flux_kontext_s2": 0.046296296296296294,
+   "flux_kontext_s3": 0.027777777777777776
+  }
+ },
+ "summary": {
+  "tcs": {
+   "mean": 0.4089506172839506,
+   "std_across_seeds": 0.02936157035561797,
+   "range_across_seeds": 0.06944444444444442,
+   "mean_item_spread": 0.2361111111111111,
+   "p95_item_spread": 1.0
+  },
+  "dps": {
+   "mean": 0.42695473251028804,
+   "std_across_seeds": 0.008961549069024856,
+   "range_across_seeds": 0.020061728395061706,
+   "mean_item_spread": 0.1705246913580247,
+   "p95_item_spread": 0.5
+  },
+  "nps": {
+   "mean": 0.8348765432098766,
+   "std_across_seeds": 0.018007789160714313,
+   "range_across_seeds": 0.03858024691358031,
+   "mean_item_spread": 0.14506172839506173,
+   "p95_item_spread": 0.5
+  },
+  "ccs": {
+   "mean": 0.5569272976680384,
+   "std_across_seeds": 0.007107126809349378,
+   "range_across_seeds": 0.016975308641975384,
+   "mean_item_spread": 0.15303497942386832,
+   "p95_item_spread": 0.4444444444444445
+  },
+  "strict_success": {
+   "mean": 0.037037037037037035,
+   "std_across_seeds": 0.007560153527108574,
+   "range_across_seeds": 0.018518518518518517,
+   "mean_item_spread": 0.037037037037037035,
+   "p95_item_spread": 0.0
+  }
+ },
+ "pairwise_spearman_items": [
+  0.5447049421201338,
+  0.584556107464417,
+  0.6667356905728427
+ ],
+ "min_pairwise_spearman": 0.5447049421201338
+}

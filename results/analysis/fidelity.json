@@ -1,0 +1,50 @@
+{
+  "feature": "alexnet-fc7",
+  "rows": [
+    {
+      "system": "instructpix2pix",
+      "n": 324,
+      "frechet_alexnet": 8190.588316638692
+    },
+    {
+      "system": "sdxl_inpaint",
+      "n": 324,
+      "frechet_alexnet": 24345.572437625786
+    },
+    {
+      "system": "qwen_image_edit",
+      "n": 324,
+      "frechet_alexnet": 4137.505587963096
+    },
+    {
+      "system": "qwen_image_edit__cot",
+      "n": 324,
+      "frechet_alexnet": 4646.6858546476
+    },
+    {
+      "system": "qwen_image_edit__oracle",
+      "n": 324,
+      "frechet_alexnet": 5471.974669354939
+    },
+    {
+      "system": "qwen_image_edit__scaffold_full",
+      "n": 324,
+      "frechet_alexnet": 4614.202991408994
+    },
+    {
+      "system": "flux_fill",
+      "n": 324,
+      "frechet_alexnet": 77879.42679411944
+    },
+    {
+      "system": "sd15_inpaint",
+      "n": 324,
+      "frechet_alexnet": 33188.7935718791
+    },
+    {
+      "system": "sd2_inpaint",
+      "n": 324,
+      "frechet_alexnet": 36770.54157659595
+    }
+  ]
+}

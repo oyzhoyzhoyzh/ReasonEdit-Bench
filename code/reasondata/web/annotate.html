@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReasonEdit-Bench 人工标注协议（B5）</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div id="login" class="overlay">
+  <div class="login-card">
+    <h1>ReasonEdit-Bench 人工标注</h1>
+    <p class="hint">独立校验 <b>因果结构（SCM）</b>、<b>推理链</b> 与 <b>区域框</b>。
+    请选择你的标注者身份；不同标注者必须独立完成，不要互相商量。</p>
+    <div id="roster" class="roster"></div>
+    <p class="hint small" id="login-proto"></p>
+    <p class="hint small">标注完成后由组织者运行 <code>python -m reasondata.anno_report</code> 汇总三套 κ。
+    也可以先 <a href="/report" target="_blank">查看实时报告</a>。</p>
+  </div>
+</div>
+
+<header id="topbar" class="hidden">
+  <div class="bar-left">
+    <span class="brand">ReasonEdit-Bench · 人工标注校验</span>
+    <span class="pill" id="who"></span>
+    <span class="pill" id="progress"></span>
+    <span class="pill ghost" id="savestate">未保存</span>
+  </div>
+  <div class="bar-right">
+    <button id="btn-prev" class="btn">← 上一题</button>
+    <input id="jump" type="number" min="1" placeholder="跳转 #" title="输入条目序号后回车">
+    <button id="btn-next" class="btn">下一题 →</button>
+    <button id="btn-save" class="btn primary">保存并下一题 (Enter)</button>
+    <a class="btn" href="/report" target="_blank">实时报告</a>
+    <button id="btn-switch" class="btn" title="同一台电脑换人时使用">切换标注者</button>
+  </div>
+</header>
+
+<main id="main" class="hidden">
+  <section class="viewer">
+    <div class="viewer-head">
+      <span class="item-id" id="item-id"></span>
+      <span class="zoombar">
+        <span class="item-meta" id="item-meta"></span>
+        <button class="btn tiny" id="zoom-out" title="缩小 (-)">−</button>
+        <span class="pill ghost" id="zoom-label">100%</span>
+        <button class="btn tiny" id="zoom-in" title="放大 (+)">＋</button>
+        <button class="btn tiny" id="zoom-fit" title="适应宽度">适应宽度</button>
+      </span>
+    </div>
+    <div class="stage" id="stage">
+      <img id="img" alt="source image">
+      <svg id="svg" viewBox="0 0 1000 1000" preserveAspectRatio="none"></svg>
+      <div id="labels"></div>
+      <div id="drawhint" class="drawhint hidden">在图像上拖拽以绘制修正框（Esc 取消）</div>
+    </div>
+    <div class="toggles" id="toggles"></div>
+    <div class="legend" id="legend"></div>
+    <div class="inst" id="instruction"></div>
+    <details class="cf" id="cf-box"><summary>反事实（不参与本次校验，仅供理解因果图）</summary>
+      <div id="cf-body"></div>
+    </details>
+  </section>
+
+  <section class="panels">
+    <div class="card" id="card-scm">
+      <h2>1 · 因果结构（SCM）校验 <span class="tag-mini">报告 κ<sub>SCM</sub></span></h2>
+      <p class="hint">逐条判断「上游节点是否真的导致/使能下游节点的状态变化」。
+      不确定时选“不确定”，不要猜。</p>
+      <div class="quick"><button class="btn tiny" data-quick="scm-all-yes">全部标为「是」</button>
+        <span class="hint small">先全部通过，再点掉有问题的条目</span></div>
+      <div id="scm-nodes"></div>
+      <div id="scm-intervention"></div>
+      <div id="scm-edges"></div>
+      <div class="verdict" id="scm-verdict"></div>
+      <textarea id="scm-note" placeholder="SCM 修正意见（可选）：哪条边应删/应改，干预变量是否写错…"></textarea>
+    </div>
+
+    <div class="card" id="card-chain">
+      <h2>2 · 推理链校验 <span class="tag-mini">报告 κ<sub>chain</sub></span></h2>
+      <p class="hint">每一步是否「由因果图可推出」且「指向正确区域」。</p>
+      <div class="quick"><button class="btn tiny" data-quick="chain-all-yes">全部标为「是」</button></div>
+      <div id="chain-steps"></div>
+      <div class="verdict" id="chain-verdict"></div>
+      <textarea id="chain-note" placeholder="推理链修正意见（可选）：哪一步缺少依据、顺序错误…"></textarea>
+    </div>
+
+    <div class="card" id="card-region">
+      <h2>3 · 区域框校验 <span class="tag-mini">报告 κ<sub>region</sub> 与 IoU</span></h2>
+      <p class="hint">默认「接受」参考框；只有框错位时才点「重画」，然后在图上拖出正确的框。
+      系统会记录你画的框与参考框的 IoU。</p>
+      <div class="quick"><button class="btn tiny" data-quick="region-accept-all">全部接受</button>
+        <span class="hint small">接受率与重画率会一起报告</span></div>
+      <div id="regions"></div>
+      <div class="verdict" id="region-verdict"></div>
+    </div>
+
+    <div class="card">
+      <h2>4 · 备注</h2>
+      <textarea id="notes" placeholder="其它问题（例如图像不可读、指令自相矛盾、无法判断…）"></textarea>
+      <div class="quick">
+        <button class="btn tiny" id="btn-skip">跳过本题</button>
+        <button class="btn tiny danger" id="btn-clear">清除本题标注</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer" class="hidden">
+  快捷键：<kbd>Enter</kbd> 保存并下一题 · <kbd>←</kbd>/<kbd>→</kbd> 上/下题 ·
+  <kbd>1</kbd>/<kbd>2</kbd>/<kbd>3</kbd> 对当前条目选 是/否/不确定（或 接受/重画/—）·
+  <kbd>A</kbd> 全部接受区域 · <kbd>E</kbd> 边与步骤全部标为「是」 ·
+  <kbd>+</kbd>/<kbd>-</kbd> 缩放（Ctrl+滚轮同样有效）· <kbd>Esc</kbd> 取消绘制
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

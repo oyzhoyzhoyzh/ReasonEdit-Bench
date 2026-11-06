@@ -1,0 +1,19 @@
+{
+  "n": 220,
+  "rejects": {
+    "effects_stated": 62,
+    "target_visible": 4,
+    "surface_solvable": 38
+  },
+  "by_source_type": {
+    "conditional": 24,
+    "counterfactual": 27,
+    "functional": 22,
+    "long_horizon": 27,
+    "multi": 26,
+    "physical": 21,
+    "sequential": 25,
+    "single": 26,
+    "social": 22
+  }
+}
