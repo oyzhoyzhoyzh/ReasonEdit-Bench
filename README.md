@@ -105,9 +105,11 @@ Probe questions are phrased so that **yes** means the contract is honoured.
 
 ## Licence
 
-Code and annotations are released for research use. The source photographs keep the
-licences of MagicBrush (COCO-derived) and ADE20K; see
-`data/ReasonEdit-Bench/README.md`.
+MIT — see [LICENSE](LICENSE). It covers the code and the released annotations.
+
+The source photographs under `data/ReasonEdit-Bench/images/` are third-party material and
+stay under the licences of MagicBrush (COCO-derived) and ADE20K; they are redistributed at
+reduced resolution for research use. See `data/ReasonEdit-Bench/README.md`.
 
 ## Contact
 
