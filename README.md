@@ -105,11 +105,17 @@ Probe questions are phrased so that **yes** means the contract is honoured.
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE). It covers the code and the released annotations.
+Split by material:
 
-The source photographs under `data/ReasonEdit-Bench/images/` are third-party material and
-stay under the licences of MagicBrush (COCO-derived) and ADE20K; they are redistributed at
-reduced resolution for research use. See `data/ReasonEdit-Bench/README.md`.
+| Material | Licence |
+| --- | --- |
+| Code (`code/`, `scripts/`) | **MIT** — see [LICENSE](LICENSE) |
+| Benchmark annotations (`data/ReasonEdit-Bench/*.jsonl`, `stats.json`) | **CC BY-NC 4.0** — see [data/LICENSE](data/LICENSE) |
+| Source photographs (`data/ReasonEdit-Bench/images/`) | Original licences of MagicBrush (COCO-derived) and ADE20K |
+
+In short: the code can be reused freely, including commercially; the annotations are
+non-commercial with attribution. The photographs are third-party material redistributed
+at reduced resolution for research use.
 
 ## Contact
 
