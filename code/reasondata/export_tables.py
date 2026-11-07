@@ -66,7 +66,7 @@ def pct_str(v: float, digits: int = 1) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--scores", default=str(config.RESULTS / "analysis" / "scores.jsonl"))
-    ap.add_argument("--out", default=str(config.ROOT / "paper" / "tables"))
+    ap.add_argument("--out", default=str(config.RESULTS / "tables"))
     ap.add_argument("--order", default=None, help="comma separated system order")
     ap.add_argument("--systems", default=None)
     args = ap.parse_args()

@@ -38,18 +38,37 @@ pip install -r requirements.txt
 Generation and judging need a GPU and local checkpoints; the analysis path below does
 not.
 
-## Quick start: recompute every table without a GPU
+## Quick start: recompute the main results on a CPU
 
-Every number in the paper follows from the released verdict files.
+The released verdict files reproduce the principal numerical results of the paper
+without a GPU.
 
 ```bash
 export RIE_ROOT=$PWD
 bash scripts/refresh_all.sh
 ```
 
-This writes `results/analysis/` (per-item scores, statistics), `results/figures/`
-(figures) and `results/tables/` (LaTeX tables). Runtime is minutes on a CPU; no model
-is loaded.
+This writes `results/analysis/` (per-item scores, statistics), `results/figures/`,
+`results/tables/` (LaTeX tables), `results/numbers.tex` (the macros the manuscript uses)
+and `results/report.md`. Runtime is minutes on a CPU.
+
+Two caveats, so that the claim matches what the script does:
+
+* the **reference metrics** (CLIPScore, CLIP-I, DINO-I, LPIPS, Frechet distance) need the
+  generated images and a vision backbone. They are skipped here; set
+  `REFRESH_AUTO_METRICS=1` to run them where the images are available.
+* the **control-specific tables** (replication, counterfactual, surface, second backbone)
+  come from their own entry points, e.g.
+
+  ```bash
+  python3 -m reasondata.replication
+  python3 -m reasondata.counterfactual
+  python3 -m reasondata.surface_compare
+  python3 -m reasondata.second_backbone
+  ```
+
+Table typography in the manuscript was adjusted by hand for the journal template, so the
+regenerated `.tex` files agree in numbers, not necessarily byte for byte.
 
 ## Reproducing from scratch
 

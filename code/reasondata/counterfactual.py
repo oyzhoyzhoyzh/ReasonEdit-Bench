@@ -52,7 +52,7 @@ def main() -> None:
     ap.add_argument("--positive", default=str(config.RESULTS / "analysis_local" / "scores.jsonl"))
     ap.add_argument("--cf", default=str(config.RESULTS / "analysis_cf" / "scores.jsonl"))
     ap.add_argument("--out", default=str(config.RESULTS / "analysis" / "counterfactual.json"))
-    ap.add_argument("--table", default=str(config.ROOT / "paper" / "tables"
+    ap.add_argument("--table", default=str(config.RESULTS / "tables"
                                            / "counterfactual_table.tex"))
     args = ap.parse_args()
 

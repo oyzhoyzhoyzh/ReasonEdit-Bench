@@ -54,7 +54,7 @@ def main() -> None:
     ap.add_argument("--local-summary",
                     default=str(config.RESULTS / "analysis_local" / "summary.json"))
     ap.add_argument("--out", default=str(config.RESULTS / "analysis" / "replication.json"))
-    ap.add_argument("--table", default=str(config.ROOT / "paper" / "tables"
+    ap.add_argument("--table", default=str(config.RESULTS / "tables"
                                            / "replication_table.tex"))
     args = ap.parse_args()
 

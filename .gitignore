@@ -24,6 +24,8 @@ results/crossbench/
 results/_smoke*/
 results/_invalid_prefilter/
 results/figures/
+results/numbers.tex
+results/report.md
 results/tables/
 results/preference/submissions/
 

@@ -1,4 +1,4 @@
-"""Generate the Chinese experiment report (实验结果报告.md) from the artefacts."""
+"""Generate a markdown report of the experiment artefacts."""
 
 from __future__ import annotations
 
@@ -38,7 +38,7 @@ def main() -> None:
     ap.add_argument("--scores", default=str(config.RESULTS / "analysis" / "scores.jsonl"))
     ap.add_argument("--bench", default="bench.jsonl")
     ap.add_argument("--stats", default=str(config.RESULTS / "analysis" / "stats.json"))
-    ap.add_argument("--out", default=str(config.ROOT / "实验结果报告.md"))
+    ap.add_argument("--out", default=str(config.RESULTS / "report.md"))
     args = ap.parse_args()
 
     items = read_jsonl(config.BENCH_DIR / args.bench)

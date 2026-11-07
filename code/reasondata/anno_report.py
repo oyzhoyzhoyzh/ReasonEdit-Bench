@@ -16,7 +16,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="B5 human-annotation agreement report")
     ap.add_argument("--data-dir", default=None)
     ap.add_argument("--out", default=None, help="output directory for report files")
-    ap.add_argument("--tables-dir", default=str(config.ROOT / "paper" / "tables"))
+    ap.add_argument("--tables-dir", default=str(config.RESULTS / "tables"))
     ap.add_argument("--print", action="store_true", help="print the markdown report")
     ap.add_argument("--json", action="store_true", help="print the report json")
     args = ap.parse_args()

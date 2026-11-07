@@ -44,7 +44,7 @@ def main() -> None:
     ap.add_argument("--pairs", default=str(config.RESULTS / "pairs108.txt"))
     ap.add_argument("--new-probes", default=str(config.RESULTS / "probes_api_2nd.jsonl"))
     ap.add_argument("--out", default=str(config.RESULTS / "analysis" / "second_backbone.json"))
-    ap.add_argument("--table", default=str(config.ROOT / "paper" / "tables"
+    ap.add_argument("--table", default=str(config.RESULTS / "tables"
                                            / "second_backbone_table.tex"))
     args = ap.parse_args()
 

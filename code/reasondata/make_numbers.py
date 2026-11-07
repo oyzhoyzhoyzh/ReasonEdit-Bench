@@ -1,4 +1,4 @@
-"""Generate paper/numbers.tex: every quantitative claim in the paper is a macro.
+"""Generate numbers.tex: every quantitative claim in the paper is a macro.
 
 This keeps the prose and the tables in sync with the artefacts in ``results/``.
 """
@@ -51,7 +51,7 @@ def main() -> None:
     ap.add_argument("--scores", default=str(config.RESULTS / "analysis" / "scores.jsonl"))
     ap.add_argument("--bench", default="bench.jsonl")
     ap.add_argument("--human", default=str(config.RESULTS / "human_eval" / "ratings.jsonl"))
-    ap.add_argument("--out", default=str(config.ROOT / "paper" / "numbers.tex"))
+    ap.add_argument("--out", default=str(config.RESULTS / "numbers.tex"))
     args = ap.parse_args()
 
     items = read_jsonl(config.BENCH_DIR / args.bench)

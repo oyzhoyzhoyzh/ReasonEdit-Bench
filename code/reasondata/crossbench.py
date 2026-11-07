@@ -285,7 +285,7 @@ def main() -> None:
     p = sub.add_parser("score")
     p.add_argument("--gpu", default="0")
     p = sub.add_parser("compare")
-    p.add_argument("--table", default=str(config.ROOT / "paper" / "tables"
+    p.add_argument("--table", default=str(config.RESULTS / "tables"
                                           / "crossbench_table.tex"))
     args = ap.parse_args()
     if args.stage == "prepare":

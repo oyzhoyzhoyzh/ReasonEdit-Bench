@@ -42,7 +42,7 @@ def main() -> None:
     ap.add_argument("--surface",
                     default=str(config.RESULTS / "analysis_surface" / "scores.jsonl"))
     ap.add_argument("--out", default=str(config.RESULTS / "analysis" / "surface_compare.json"))
-    ap.add_argument("--table", default=str(config.ROOT / "paper" / "tables"
+    ap.add_argument("--table", default=str(config.RESULTS / "tables"
                                            / "surface_table.tex"))
     args = ap.parse_args()
 

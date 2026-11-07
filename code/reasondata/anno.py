@@ -856,7 +856,7 @@ def write_report_files(report: dict, out_dir: str | Path | None = None,
         return paths
     paths["macros"] = out / "numbers_annotation.tex"
     paths["macros"].write_text(report_macros(report))
-    tables_dir = Path(tables_dir or (config.ROOT / "paper" / "tables"))
+    tables_dir = Path(tables_dir or (config.RESULTS / "tables"))
     tables_dir.mkdir(parents=True, exist_ok=True)
     paths["table"] = tables_dir / "annotation_agreement.tex"
     paths["table"].write_text(report_latex(report))
